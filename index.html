@@ -6,7 +6,7 @@
 
 		<title>FP.py</title>
 
-		<meta name="description" content="Introduction to Functional Programming in Python">
+		<meta name="description" content="An Introduction to Functional Programming in Python">
 		<meta name="author" content="Elliot Cameron">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -15,7 +15,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/custom.css">
+		<link rel="stylesheet" href="css/theme/night.css" id="theme">
 
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -39,341 +40,710 @@
 		<div class="reveal">
 
 			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<section>
-					<h1>FP.py</h1>
-					<h3>An Introduction to Functional Programming in Python</h3>
-					<p>
-						<small>by <a href="http://3noch.github.io">Elliot Cameron</a> / <a href="http://twitter.com/eacameron88">@eacameron88</a></small>
-					</p>
-				</section>
-
-				<section>
-					<h2>So yeah, about that...</h2>
-					<p>
-						Functional Programming is getting a lot of press these days, what's the deal?
-					</p>
-				</section>
-
-				<!-- Example of nested vertical slides -->
-				<section>
+			<div class="slides customized">
+				<section id="intro">
 					<section>
-						<h2>Vertical Slides</h2>
-						<p>Slides can be nested inside of each other.</p>
-						<p>Use the <em>Space</em> key to navigate through all slides.</p>
-						<br>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 1</h2>
-						<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<p>That's it, time to go back up.</p>
-						<br>
-						<a href="#/2">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-				</section>
-
-				<section>
-					<h2>Slides</h2>
-					<p>
-						Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slides.com" target="_blank">http://slides.com</a>.
-					</p>
-				</section>
-
-				<section>
-					<h2>Point of View</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview.
-					</p>
-					<p>
-						Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-					</p>
-				</section>
-
-				<section>
-					<h2>Touch Optimized</h2>
-					<p>
-						Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
-					</p>
-				</section>
-
-				<section data-markdown>
-					<script type="text/template">
-						## Markdown support
-
-						Write content using inline or external Markdown.
-						Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-
-						```
-						<section data-markdown>
-						  ## Markdown support
-
-						  Write content using inline or external Markdown.
-						  Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-						</section>
-						```
-					</script>
-				</section>
-
-				<section>
-					<section id="fragments">
-						<h2>Fragments</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
-
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
-						</aside>
-					</section>
-					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's different types of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment roll-in">roll-in</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment current-visible">current-visible</p>
-						<p class="fragment highlight-red">highlight-red</p>
-						<p class="fragment highlight-blue">highlight-blue</p>
-					</section>
-				</section>
-
-				<section id="transitions">
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like: <br>
-						<a href="?transition=none#/transitions">None</a> -
-						<a href="?transition=fade#/transitions">Fade</a> -
-						<a href="?transition=slide#/transitions">Slide</a> -
-						<a href="?transition=convex#/transitions">Convex</a> -
-						<a href="?transition=concave#/transitions">Concave</a> -
-						<a href="?transition=zoom#/transitions">Zoom</a>
-					</p>
-				</section>
-
-				<section id="themes">
-					<h2>Themes</h2>
-					<p>
-						reveal.js comes with a few themes built in: <br>
-						<!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black (default)</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a> <br>
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
-					</p>
-				</section>
-
-				<section>
-					<section data-background="#dddddd">
-						<h2>Slide Backgrounds</h2>
+						<h1>FP.py</h1>
+						<h3>An Introduction to Functional Programming in Python</h3>
 						<p>
-							Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
+							<small>by <a href="http://3noch.github.io">Elliot Cameron</a> / <a href="https://github.com/3noch">3noch</a></small>
 						</p>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
+						<p>
+							<small>Follow along<br><a href="http://3noch.github.io/fp.py">3noch.github.io/fp.py</a></small>
+						</p>
+						<p>
+							<small><em>Note:</em> Alt+Click on an element to zoom in.</small>
+						</p>
+						<p>
+							Ask questions!
+						</p>
 					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png">
-						<h2>Image Backgrounds</h2>
-						<pre><code>&lt;section data-background="image.png"&gt;</code></pre>
+
+					<section>
+						<h2>Objective</h2>
+						<div class="fragment">
+							<img src="img/wrong.jpg">
+							<a class="reference" ahref="http://www.lambdalounge.org.uk/">ref</a>
+						</div>
 					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" data-background-repeat="repeat" data-background-size="100px">
-						<h2>Tiled Backgrounds</h2>
-						<pre><code style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
+
+					<section>
+						<h2>Objective</h2>
+						<h3>Not</h3>
+						<p>
+							<ul>
+								<li>to convince you to write all your Python code in FP style.</li>
+							</ul>
+						</p>
+						<h3>To</h3>
+						<p>
+							<ul>
+								<li>broaden your perspective on programming in general,</li>
+								<li>increase your appreciation for alternative ways of approaching a problem,</li>
+								<li>help you write better code.</li>
+							</ul>
+						</p>
 					</section>
-					<section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-color="#000000">
-						<div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
-							<h2>Video Backgrounds</h2>
-							<pre><code style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
+				</section>
+
+				<section>
+					<section>
+						<h2>Who?</h2>
+						<p class="fragment">
+							<img src="img/ranking.png" style="width: 40%; height: auto">
+							<a class="reference" href="http://www.sitepoint.com/best-programming-language-learn-2014-mid-year-update/">ref</a>
+							<br>
+							FP is starting to gain momentum
+						</p>
+					</section>
+					<section>
+						<h2>It's weird</h2>
+						<h3>and scary</h3>
+						<p>
+							<pre>
+								<code class="haskell" data-trim>
+type Seconds = Int
+secs     :: Int -> Seconds;                  secs         = (* 1000000)
+wait     :: Seconds -> IO ();                wait         = threadDelay . secs
+schedule :: Seconds -> IO () -> IO ThreadId; schedule s a = forkIO $! wait s >> a
+
+(<>) :: ByteString -> ByteString -> ByteString; (<>)   = B.append
+(//) :: a -> (a -> b) -> b;                     x // f = f x
+(|>) :: IO () -> IO () -> IO ();                a |> b = forkIO a >> b
+infixr 0 =>>; (=>>) :: Monad m => m a -> (a -> m b) -> m a
+a =>> f = do r <- a; _ <- f r; return r
+
+type ErrorIO = IO
+att    :: IO a  -> IO (Maybe a); att    a = tryWith (const $! return Nothing) (Just <$> a)
+tryRun :: IO () -> IO ();        tryRun a = tryWith (\x -> do print x; wait 2) a
+(???)  :: ErrorIO a -> [IO a] -> IO a; e ??? as = foldr (?>) e as
+  where x ?> y = x `X.catch` (\(_ :: X.SomeException) -> y)
+								</code>
+							</pre>
+							<a class="reference" href="https://github.com/corsis/PortFusion/blob/master/src/Main.hs">ref</a>
+						</p>
+					</section>
+					<section>
+						<h2>But beware the <a href="http://lmgtfy.com/?q=Blub+Paradox&l=1">Blub Paradox</a></h2>
+						<div class="fragment">
+							<q>"I don't understand your way, so mine must be better."</q>
+							<img src="img/amish.jpg">
+							<a class="reference" href="http://www.toledoblade.com/image/2001/05/06/800x_b1_cCM_z/Amish-in-an-English-world-4.jpg">ref</a>
+						</div>
+					</section>
+					<section>
+						<h2>Discern</h2>
+						<h3 class="fragment">There are <em>two</em> ways to be puzzled</h3>
+						<table class="comparison">
+							<tr>
+								<td class="fragment">
+									\[  \begin{aligned}
+									\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &amp; = \frac{4\pi}{c}\vec{\mathbf{j}} \\   \nabla \cdot \vec{\mathbf{E}} &amp; = 4 \pi \rho \\
+									\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} &amp; = \vec{\mathbf{0}} \\
+									\nabla \cdot \vec{\mathbf{B}} &amp; = 0 \end{aligned}
+									\]
+								</td>
+								<td class="fragment">
+									<img src="img/rube.jpg">
+								</td>
+							</tr>
+							<tr>
+								<td class="caption fragment">
+									he knows something I don't
+								</td>
+								<td class="caption fragment">
+									he doesn't know what he's doing (and neither do I)
+								</td>
+							</tr>
+						</table>
+					</section>
+				</section>
+
+				<section id="myths">
+					<section>
+						<h2>Myth 1<span class="fragment">: FP is Hard</span></h2>
+						<div class="fragment">
+							<h3>hard to what?</h3>
+							<table>
+								<tr class="fragment">
+									<td><strong>learn</strong></td><td>probably only if you're already used to something else*</td>
+								</tr>
+								<tr class="fragment">
+									<td><strong>read</strong></td><td>same deal*</td>
+								</tr>
+								<tr class="fragment">
+									<td><strong>test</strong></td><td>to the contrary, FP tends to be much easier to test*</td>
+								</tr>
+								<tr class="fragment">
+									<td><strong>debug</strong></td><td>to the contrary, expressions are the easiest types of things to debug*</td>
+								</tr>
+							</table>
+
+							<p style="text-align: left"><small>* courteously suspend disbelief if possible</small></p>
+						</div>
+					</section>
+					<section>
+						<h2>Myth 2<span class="fragment">: FP is Slow</span></h2>
+						<div class="fragment">
+							<h4>not necessarily...</h4>
+							<img src="img/speed.png">
+							<a class="reference" href="http://benchmarksgame.alioth.debian.org/u32/compare.php?lang=ghc&lang2=python3">ref</a>
+						</div>
+					</section>
+
+					<section>
+						<h2>Myth 3<span class="fragment">: FP is for Idealists</span></h2>
+						<div class="fragment">
+							<h4>prove it</h4>
+							<img src="img/lang-analysis.jpg" style="width: 60%; height: auto">
+							<blockquote>
+								To become a competent realist you must start with ideals.
+								<br>
+								<small>- Anonymous</small>
+							</blockquote>
 						</div>
 					</section>
 				</section>
 
-				<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						Different background transitions are available via the backgroundTransition option. This one's called "zoom".
-					</p>
-					<pre><code>Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>
+				<section id="history">
+					<section>
+						<h2>How we got here</h2>
+						<h4>We live in the imperative dynasty:<br>object-oriented and procedural are both imperative</h4>
+						<img src="img/directions.png" style="width: 70%; height: auto">
+						<a class="reference" href="http://www.mapquest.com/?q2=357718324+type:mqid#e55d2ef3dd8453a2788d7198">ref</a>
+						<br>
+						driving directions depend on your current position
+					</section>
+					<section>
+						<h2>The Father of Imperative Thinking</h2>
+						<img src="img/alan.jpg" style="width: 30%; height: auto">
+						<a class="reference" href="http://en.wikipedia.org/wiki/Alan_Turing#/media/File:Alan_Turing_photo.jpg">ref</a>
+						<p>Alan Turing: Invented the "Turing Machine" (1936)</p>
+					</section>
+					<section>
+						<h2>The Father of Functional Thinking</h2>
+						<img src="img/alonzo.jpg" style="width: 30%; height: auto">
+						<a class="reference" href="http://en.wikipedia.org/wiki/Alonzo_Church#/media/File:Alonzo_Church.jpg">ref</a>
+						<p>Alonzo Church: Formulated λ-calculus (1928-1929) and Turing's Ph.D. Advisor</p>
+					</section>
+					<section>
+						<h3>Next turn: Maps</h3>
+						<img src="img/road-map.jpg" style="width: 85%; height: auto">
+						<a class="reference" href="http://upload.wikimedia.org/wikipedia/commons/1/16/1929_New_England_road_map.jpg">ref</a>
+						<br>
+						maps do not depend on your current position
+					</section>
 				</section>
 
-				<section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						You can override background transitions per-slide.
-					</p>
-					<pre><code style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
-				</section>
-
-				<section>
-					<h2>Pretty Code</h2>
-					<pre><code data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) {
-        node.className += ' roll';
-      }
-    }
-  }
-}
-					</code></pre>
-					<p>Code syntax highlighting courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
-
-				<section>
-					<h2>Marvelous List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
-				</section>
-
-				<section>
-					<h2>Tabular Tables</h2>
-					<table>
-						<thead>
+				<section id="principle1">
+					<section>
+						<h2>Principle 1<span class="fragment">: <span style="text-decoration: underline">Function</span></span><span class="fragment">al</span></h2>
+						<h3 class="fragment">math and pure functions</h3>
+					</section>
+					<section>
+						<h3>Math 101: Functions</h3>
+						<table class="comparison">
 							<tr>
-								<th>Item</th>
-								<th>Value</th>
-								<th>Quantity</th>
+								<td>
+									<img src="img/vertical-line-test.png" style="background-color: white; width: 80%; height: auto">
+									<a class="reference" href="http://en.wikipedia.org/wiki/Vertical_line_test#/media/File:Vertical_line_test.png">ref</a>
+								</td>
+								<td>
+									For every input there is precisely one output.
+								<td>
 							</tr>
-						</thead>
-						<tbody>
 							<tr>
-								<td>Apples</td>
-								<td>$1</td>
-								<td>7</td>
+								<td class="caption">
+									The Vertical Line Test
+								</td>
+								<td></td>
+							</tr>
+						</table>
+					</section>
+
+					<section>
+						<h3>a.k.a. Referential Transparency</h3>
+						<h4>and why FP is sometimes called "value-oriented programming"</h4>
+						<dl>
+							<dt>referential transparency</dt>
+							<dd>
+								<em>ref·er·en·tial trans·par·en·cy</em>
+
+								<blockquote style="font-size: 80%">
+									An expression is said to be <u>referentially transparent</u> if it can be replaced with its value without changing the behavior of a program (in other words, yielding a program that has the same effects and output on the same input). The opposite term is <u>referential opaqueness</u>.
+									<br><br>
+									While in mathematics all function applications are referentially transparent, in programming this is not always the case. The importance of referential transparency is that it allows the programmer and the compiler to reason about program behavior.
+									<a class="reference" href="http://en.wikipedia.org/wiki/Referential_transparency_(computer_science)">ref</a>
+								</blockquote>
+							</dd>
+						</dl>
+					</section>
+
+					<section>
+						<h4>Example: Python's <code>ord</code> function</h4>
+						<img src="img/ascii-table.png" style="width:70%; height: auto">
+						<p>
+							<code>ord("P")</code> can be replaced with <code>80</code> in every case, and vice versa, without any change to a program's behavior.
+						</p>
+					</section>
+
+					<section>
+						<h3>Observe:</h3>
+						<table class="comparison">
 							<tr>
+								<td>
+									<pre>
+										<code class="python" data-trim>
+def double(x):
+    return x * 2
+
+def get_last_name(full_name):
+    return full_name.partition(" ")[2]
+
+def get_penultimate(items):
+    return (items[-2]
+        if len(items) > 1
+      else None)
+										</code>
+									</pre>
+								</td>
+								<td>
+									Python Functions? Yes
+									<br>
+									Math Functions? Yes
+								</td>
+							</tr>
 							<tr>
-								<td>Lemonade</td>
-								<td>$2</td>
-								<td>18</td>
-							<tr>
-							<tr>
-								<td>Bread</td>
-								<td>$3</td>
-								<td>2</td>
-							<tr>
-						</tbody>
-					</table>
+								<td>
+									<pre>
+										<code class="python" data-trim>
+def get_random():
+    return random.randint(1, 10)
+
+global_state = 5
+def get_next_state(steps):
+    global global_state
+    global_state += steps
+    return global_state
+
+def save_file(contents):
+    with open("file.txt", "w") as file_handle:
+        file_handle.write(contents)
+
+def change_arg(arg):
+    arg = arg + 1
+
+def hello_world():
+    print("Hello world")
+										</code>
+									</pre>
+								</td>
+								<td>
+									Python Functions? Yes
+									<br>
+									Math Functions? No
+								</td>
+							</tr>
+						</table>
+					</section>
+
+					<section>
+						<h3>How to Break Referential Transparency</h3>
+						<h4>and why FP is also sometimes called "programming without assignment"</h4>
+						<ul>
+							<li>The arch-nemesis of referential transparency is <em>mutable state</em>.</li>
+							<li>If you want referential transparency, you must give up
+							<ul>
+								<li class="fragment"><strike>assignment</strike></li>
+								<li class="fragment">including <strike>side-effects</strike>.</li>
+							</ul>
+						</ul>
+						<pre class="fragment">
+							<code class="python" data-trim>
+global_state = 5
+def get_next_state(steps):
+    global global_state
+    global_state += steps                       # <-- NOPE!
+    return global_state
+
+def save_file(contents):
+    with open("file.txt", "w") as file_handle:
+        file_handle.write(contents)             # <-- NOPE!
+
+def change_arg(arg):
+    arg = arg + 1                               # <-- NOPE!
+
+def hello_world():
+    print("Hello world")                        # <-- NOPE!
+							</code>
+						</pre>
+					</section>
+
+					<section>
+						<h3>"Impossible!"</h3>
+						<p class="fragment">
+							Oh but it is. Turing and Church proved that Turing machines and λ-calculus are equivalent models of computation!
+						</p>
+
+						<h3 class="fragment">"But how?"</h3>
+						<p class="fragment">
+							More on that later.
+						</p>
+					</section>
+
+					<section>
+						<h3>Why Bother?</h3>
+						<h4>why referential transparency matters</h4>
+						<ul>
+							<li>
+								Optimizes the programmer's abilities
+								<ul>
+									<li>Deterministic</li>
+									<li>Unaffected by <em>ordering</em> or time</li>
+									<li>Simple to understand</li>
+									<li>Easy to refactor</li>
+									<li>Easy to abstract / modularize</li>
+									<li>Easy to compose (think Legos)</li>
+									<li>Easy to isolate and test</li>
+									<li>Easy to verify by proofs</li>
+								</ul>
+							</li>
+							<li>
+								Optimizes the machine's abilities
+								<ul>
+									<li>Memoization</li>
+									<li>Common subexpression elimination</li>
+									<li>Lazy evaluation</li>
+									<li>Parallelization</li>
+									<li>Easy to verify by static analysis</li>
+								</ul>
+							</li>
+						</ul>
+					</section>
 				</section>
 
-				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
-					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
-					</blockquote>
+				<section id="principle2">
+					<section>
+						<h2>
+							Principle 2<span class="fragment">: <u>Function</u><span class="fragment">s of Higher Order</span>
+						</h2>
+						<div class="fragment">
+							<h3>first-class and higher-order functions</h3>
+							<img src="img/whoa.jpg">
+							<a class="reference" href="https://s-media-cache-ak0.pinimg.com/originals/2e/f7/fd/2ef7fd432d5fc9ecbf86e3add52ada46.jpg">ref</a>
+						</div>
+					</section>
+					<section>
+						<h3>Higher-order Functions</h3>
+						<h4 class="fragment">are functions that give or take functions</h4>
+						<div class="fragment">
+							<p>
+								(f &#8728; g)(x) = f(g(x))
+							</p>
+							<img src="img/russian-doll.jpg" style="width: 40%; height: auto">
+							<a class="reference" href="http://en.wikipedia.org/wiki/Matryoshka_doll#/media/File:Russian-Matroshka2.jpg">ref</a>
+							<p>
+								<strong>Exercise:</strong> What are some higher-order functions in math?
+							</p>
+						</div>
+					</section>
+					<section>
+						<h3>First-class Functions</h3>
+						<h4 class="fragment">are boring</h4>
+						<div class="fragment">
+							<p>
+								"First-class" means you can pass it around just like anything else (numbers, strings, objects).
+							</p>
+							<pre>
+								<code class="python" data-trim>
+# map takes another function
+last_names = map(lambda full_name: full_name.partition(" ")[2], names)
+
+# filter does too
+capitalized_names = filter(lambda name: name[0] == name[0].upper(), last_names)
+
+def compose(f, g):            # takes two functions
+    return lambda x: f(g(x))  # gives a new function
+								</code>
+							</pre>
+						</div>
+					</section>
+
+					<section>
+						<h2>That's it: 2 Principles</h2>
+						<h3 class="fragment">What happens when we apply them?</h3>
+					</section>
 				</section>
 
-				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
-					</p>
+				<section id="application1">
+					<section>
+						<h2>Application 1<span class="fragment">: Immutable Data</span></h2>
+						<div class="fragment">
+							<img src="img/immutable.jpg" style="width: 80%; height: auto">
+							<a class="reference" href="http://bodil.org/ten-minute-clojure/#/10">ref</a>
+						</div>
+					</section>
+					<section>
+						<img src="img/kay.jpg">
+						<a class="reference" href="https://lh6.googleusercontent.com/proxy/ywPUp7dCkdmdnAVHi-N_LUwHPeROBunJLOGSLcSjBHRzQcZElEQNPnLXxFclj4EBaAUL-YUwnzmRk1hg8wJmmyw7kWo=w506-h285-n">ref</a>
+					</section>
+					<section>
+						<h3>Don't change, copy</h3>
+						<pre>
+							<code class="python" data-trim>
+# no
+age = 30
+if date > birth_date:
+    age += 1
+
+# yes
+age = 30
+corrected_age = age + 1 if date > birth_date else age
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h3>Isn't that horribly slow?</h3>
+						<h4 class="fragment">it depends</h4>
+						<ul>
+							<li class="fragment">
+								<p>
+									Some algorithms actually go faster with immutable structures,
+									<br>especially ones that can run in parallel.
+								</p>
+							</li>
+							<li class="fragment">
+								Optimizations exist to make immutable data work efficiently:
+								<ul>
+									<li>Sharing*</li>
+									<li>Path copying*</li>
+									<li>etc.</li>
+								</ul>
+								<p>* Available to Python through a library.</p>
+							</li>
+							<li class="fragment">
+								In many average cases, forgoing mutation is much easier than you might think.
+							</li>
+						</ul>
+					</section>
 				</section>
 
-				<section>
-					<h2>Speaker View</h2>
-					<p>There's a <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
-					<p>Press the <em>S</em> key to try it out.</p>
+				<section id="application2">
+					<section>
+						<h2>Application 2<span class="fragment">: No Loops</span></h2>
+						<pre class="fragment">
+							<code class="python" data-trim>
+the_sum = 0
+for i in range(10):
+    the_sum += i         # NOPE!
+							</code>
+						</pre>
 
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
+						<div class="fragment">
+							<h4>Use recursion instead</h4>
+							<pre class="fragment">
+								<code class="python" data-trim>
+def get_sum(values, start=0):
+    if not values:
+        return start
+    the_rest = values[1:] # why is this ok?
+    return get_sum(the_rest, start + values[0])
+
+the_sum = get_sum(range(10))   # 45
+
+# or
+
+get_sum = lambda values, start=0: get_sum(values[1:], start + values[0]) if values else start
+the_sum = get_sum(range(10))   # 45
+
+# or
+
+the_sum = sum(range(10))       # 45
+								</code>
+							</pre>
+						</div>
+					</section>
+
+					<section>
+						<h3>Recursion is Bad in Python</h3>
+						<p>
+							Python doesn't implement any optimizations for recursion, so recursion bloats your stack really fast, runs very slowly, and can easily hit the recursion limit.
+						</p>
+						<pre class="fragment">
+							<code class="python" data-trim>
+get_sum(range(1000000))  # takes forever
+							</code>
+						</pre>
+						<h4 class="fragment">But not to fear, we can</h4>
+						<ul>
+							<li class="fragment">use a library to help, or</li>
+							<li class="fragment">realize that...</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>All Loops Can Be Broken Down</h3>
+						<div class="fragment">
+							<p>
+								<code>sum</code> is an example of a particular <em>type</em> of loop: <strong>fold</strong>.
+							</p>
+						</div>
+						<h4 class="fragment">All loops can be written in terms of</h4>
+						<ul>
+							<li class="fragment">maps</li>
+							<li class="fragment">filters</li>
+							<li class="fragment">
+								folds (also called "reduce")
+								<br>
+								<small class="fragment">in fact, <em>fold</em> is really all you need</small>
+							</li>
+						</ul>
+						<pre class="fragment">
+							<code class="python" data-trim>
+map(lambda x: x * 2, range(10))                           # [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+
+filter(lambda x: x < 5, range(10))                        # [0, 1, 2, 3, 4]
+
+reduce(lambda x, y: x + y, range(10), 0)                  # 45
+
+# mixup
+map(lambda x: x * 2, filter(lambda x: x < 5, range(10)))  # [0, 2, 4, 6, 8]
+
+# or
+[x * 2 for x in range(10) if x < 5]                       # [0, 2, 4, 6, 8]
+							</code>
+						</pre>
+						<p class="fragment">
+							We can rely on these tools to skip the need for explicit recursion.
+						</p>
+					</section>
 				</section>
 
-				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, here's an example:</p>
-					<iframe src="//www.slideshare.net/slideshow/embed_code/42840540" width="445" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+				<section id="application3">
+					<section>
+						<h2>Application 3<span class="fragment">: Partial Application and Currying</span></h2>
+						<h4 class="fragment">and why every function really only has one argument</h4>
+						<div class="fragment">
+							<img src="img/curry.jpg">
+							<a class="reference" href="https://wiki.haskell.org/Haskell_Brooks_Curry">ref</a>
+							<br>
+							Haskell Brooks Curry
+						</div>
+					</section>
+					<section>
+						<h3>Partial Application</h3>
+						<h4>fill in the holes</h4>
+						<h5 class="fragment">What happens when you don't provide all the arguments?</h5>
+						<pre class="fragment">
+							<code class="python" data-trim>
+def add_them(a, b):
+    return a + b
+
+add_them(2)
+# TypeError: add_them() takes exactly 2 arguments (1 given)
+							</code>
+						</pre>
+						<h5 class="fragment">Why not build the result in phases?</h5>
+						<pre class="fragment">
+							<code class="python" data-trim>
+from functools import partial
+
+partial(add_them, 2)
+# &lt;functools.partial at 0x322bf48&gt;
+
+partial(add_them, 2)(3) # 5
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h3>Currying</h3>
+						<h4>not directly supported, but don't need it</h4>
+						<ul>
+							<li>
+								<p>
+									Currying treats every function as a single-argument function.
+									<br>
+									Given its one input, it returns a new function that takes the next one.
+								</p>
+							</li>
+							<li>
+								<p>
+									Currying is very nice, but not essential.
+									<br>
+									In Python, we can use libraries to give us some of these features.
+								</p>
+							</li>
+						</ul>
+					</section>
 				</section>
 
-				<section>
-					<h2>Global State</h2>
-					<p>
-						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-						will be added as a class to the document element when the slide is open. This lets you
-						apply broader style changes, like switching the page background.
-					</p>
+				<section id="application4">
+					<section>
+						<h2>Application 4<span class="fragment">: Core and Crust</span></h2>
+						<h4 class="fragment">designing entire apps with FP</h4>
+						<div class="fragment">
+							<img src="img/core-crust.jpg" style="width: 50%; height: auto">
+							<a class="reference" href="http://www.sciencedaily.com/releases/2013/10/131010142750.htm">ref</a>
+						</div>
+					</section>
+					<section>
+						<h3>Pure Core / Thin Effectful Crust</h3>
+						<img src="img/wheel.jpg">
+						<p class="fragment">
+							Push as much "impure" code into the crust, including:
+						</p>
+						<ul>
+							<li class="fragment">human interaction</li>
+							<li class="fragment">file I/O</li>
+							<li class="fragment">networking</li>
+							<li class="fragment">time</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Dependency Injection / Parametric Design</h3>
+						<p>
+							Avoiding mutation essentially forces you to build parametric components,
+							<br>
+							i.e. pieces that require their dependencies before they can be used.
+						</p>
+					</section>
 				</section>
 
-				<section data-state="customevent">
-					<h2>State Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
-Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-				</section>
-
-				<section>
-					<h2>Take a Moment</h2>
-					<p>
-						Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting slides off the screen.
-					</p>
-				</section>
-
-				<section>
-					<h2>Much more</h2>
+				<section id="scratch">
+					<h2>Lots more...</h2>
+					<h3>we're only just getting started</h3>
 					<ul>
-						<li>Right-to-left support</li>
-						<li><a href="https://github.com/hakimel/reveal.js#api">Extensive JavaScript API</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#auto-sliding">Auto-progression</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#parallax-background">Parallax backgrounds</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#keyboard-bindings">Custom keyboard bindings</a></li>
+						<li>Algebraic data types</li>
+						<li>Pattern matching</li>
+						<li>Lazy data structures (infinite lists, etc.)</li>
+						<li>Functors, Monads, etc.</li>
+						<li>Concurrency / Parallelism</li>
 					</ul>
 				</section>
 
-				<section style="text-align: left;">
-					<h1>THE END</h1>
+				<section>
+					<h2>Disclaimer</h2>
 					<p>
-						- <a href="http://slides.com">Try the online editor</a> <br>
-						- <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
+						Don't confuse your experience of functional programming in Python with functional programming in general.
+					</p>
+					<p>
+						Python's design is not intentionally supportive of FP, so the experience suffers to some degree.
+					</p>
+					<p>
+						<a href="http://stackoverflow.com/a/1017937/503377">more on <em>why</em> this is the case</a>
 					</p>
 				</section>
 
+				<section id="every-day">
+					<h2>Every-day life</h2>
+					<p>
+						<a href="https://github.com/kachayev/fn.py">fn.py</a> is a great start.
+					</p>
+					<p>
+						Go forth and code.
+					</p>
+				</section>
 			</div>
-
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
@@ -391,14 +761,18 @@ Reveal.addEventListener( 'customevent', function() {
 
 				transition: 'slide', // none/fade/slide/convex/concave/zoom
 
+				math: {
+					// mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+					config: 'TeX-AMS_HTML-full'
+				},
+
 				// Optional reveal.js plugins
 				dependencies: [
 					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
 					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/math/math.js', async: true }
 				]
 			});
 
